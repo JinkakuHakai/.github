@@ -1,7 +1,6 @@
 name: プログラマタスク
 description: プログラマのタスク作成はここで行います
 title: "ここにどのような作業を行うのか簡単な説明を記入して下さい"
-labels: ["bug"]
 body:
   - type: markdown
     attributes:
