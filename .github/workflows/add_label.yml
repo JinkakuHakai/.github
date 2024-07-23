@@ -1,0 +1,48 @@
+name: Add Label Issue on Priority
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  label_issue:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Check Issue Content
+        id: check_content
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const issueBody = context.payload.issue.body;
+            const priorityMatch = issueBody.match(/### 緊急度\s*\n\s*(緊急|高|中|低)/);
+            
+            if (priorityMatch) {
+              const priority = priorityMatch[1];
+              let label = '';
+
+              switch(priority) {
+                case '緊急':
+                  label = '緊急';
+                  break;
+                case '高':
+                  label = '優先度: 高';
+                  break;
+                case '中':
+                  label = '優先度: 中';
+                  break;
+                case '低':
+                  label = '優先度: 低';
+                  break;
+              }
+              return label;
+            }
+
+            return "";
+
+      - run: gh issue edit "$NUMBER" --add-label ${{ toJson(steps.check_content.outputs.result) }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
