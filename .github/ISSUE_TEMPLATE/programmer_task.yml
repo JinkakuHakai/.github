@@ -1,0 +1,44 @@
+name: プログラマタスク
+description: プログラマのタスク作成はここで行います
+title: "ここにどのような作業を行うのか簡単な説明を記入して下さい"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 以下にタスクの内容を記入してください
+  - type: textarea
+    id: task
+    attributes:
+      label: バグの内容
+      description: |
+        どのようなタスクの内容かをここに書きます
+
+        # 例
+        ## タスク内容
+        Xボタンを押すとジャンプできるようにする
+        
+      placeholder: |
+        # タスク内容
+      value: |
+        # タスク内容
+        
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: 優先度
+      description: | 
+        緊急: 即座に対応完了が必要なもの
+        高: クリティカルパス上にあるなど早急に対応完了すべきもの
+        中: 対応完了しなければその他タスクに影響があるもの
+        低: 上記以外
+      options:
+        - 緊急
+        - 高
+        - 中
+        - 低
+      default: 2
+    validations:
+      required: true

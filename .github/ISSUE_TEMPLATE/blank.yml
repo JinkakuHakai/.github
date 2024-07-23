@@ -1,0 +1,10 @@
+name: 空のテンプレート
+description: テンプレートを使用しないIssueの作成はここで行います
+title: "概要を記入して下さい"
+body:
+  - type: textarea
+    id: text
+    attributes:
+      label: 内容
+    validations:
+      required: true

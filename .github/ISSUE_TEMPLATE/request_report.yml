@@ -1,0 +1,27 @@
+name: リクエスト
+description: 新規機能、変更などの要望などはここで行います
+title: "ここに要望に関する簡単な概要を記入して下さい"
+labels: ["要望"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 以下に要望の内容を記入してください
+  - type: textarea
+    id: request
+    attributes:
+      label: 要望の内容
+      description: |
+        どのような機能が欲しいのか、どのような変更をしてほしいか等をここに書きます
+
+        # 例
+        ## 要望内容
+        二段ジャンプできるようにしてほしい
+        Xボタン押下後にもう一度Xボタンを押下すると再度ジャンプしてほしい
+      placeholder: |
+        # 要望内容
+      value: |
+        # 要望内容
+        
+    validations:
+      required: true
