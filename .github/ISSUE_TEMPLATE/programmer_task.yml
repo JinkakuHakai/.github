@@ -9,7 +9,7 @@ body:
   - type: textarea
     id: task
     attributes:
-      label: バグの内容
+      label: タスクの内容
       description: |
         どのようなタスクの内容かをここに書きます
 
